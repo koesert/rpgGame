@@ -1,0 +1,21 @@
+public interface IPlayer
+{
+    string Name { get; }
+    int Level { get; }
+    int ExperiencePoints { get; }
+
+    void GainExperience(int experience);
+}
+
+public class Player : IPlayer
+{
+    public string Name { get; protected set; }
+    public int Level { get; protected set; }
+    public int ExperiencePoints { get; protected set; }
+
+    public Player(string name)
+    {
+        Name = name;
+        Level = 1;
+        ExperiencePoints = 0;
+    }
