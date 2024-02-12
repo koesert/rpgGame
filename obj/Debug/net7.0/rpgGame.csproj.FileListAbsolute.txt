@@ -1,0 +1,14 @@
+/Users/janwillem/School/HBO/Semester 2/rpgGame/bin/Debug/net7.0/rpgGame
+/Users/janwillem/School/HBO/Semester 2/rpgGame/bin/Debug/net7.0/rpgGame.deps.json
+/Users/janwillem/School/HBO/Semester 2/rpgGame/bin/Debug/net7.0/rpgGame.runtimeconfig.json
+/Users/janwillem/School/HBO/Semester 2/rpgGame/bin/Debug/net7.0/rpgGame.dll
+/Users/janwillem/School/HBO/Semester 2/rpgGame/bin/Debug/net7.0/rpgGame.pdb
+/Users/janwillem/School/HBO/Semester 2/rpgGame/obj/Debug/net7.0/rpgGame.GeneratedMSBuildEditorConfig.editorconfig
+/Users/janwillem/School/HBO/Semester 2/rpgGame/obj/Debug/net7.0/rpgGame.AssemblyInfoInputs.cache
+/Users/janwillem/School/HBO/Semester 2/rpgGame/obj/Debug/net7.0/rpgGame.AssemblyInfo.cs
+/Users/janwillem/School/HBO/Semester 2/rpgGame/obj/Debug/net7.0/rpgGame.csproj.CoreCompileInputs.cache
+/Users/janwillem/School/HBO/Semester 2/rpgGame/obj/Debug/net7.0/rpgGame.dll
+/Users/janwillem/School/HBO/Semester 2/rpgGame/obj/Debug/net7.0/refint/rpgGame.dll
+/Users/janwillem/School/HBO/Semester 2/rpgGame/obj/Debug/net7.0/rpgGame.pdb
+/Users/janwillem/School/HBO/Semester 2/rpgGame/obj/Debug/net7.0/rpgGame.genruntimeconfig.cache
+/Users/janwillem/School/HBO/Semester 2/rpgGame/obj/Debug/net7.0/ref/rpgGame.dll
