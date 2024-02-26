@@ -1,3 +1,5 @@
+using System.Runtime.InteropServices.Marshalling;
+
 class Program
 {
     static void Main()
@@ -26,6 +28,14 @@ class Program
     {
         player.CurrentLocation = World.Locations[1];
         Console.WriteLine($"You have arrived at {player.CurrentLocation.Name}: {player.CurrentLocation.Description}");
+        bool check = false;
+        foreach (Location location in World.Locations)
+        {
+            if (location.QuestAvailableHere != null)
+            {
+                check = true;
+            }
+        }
         Console.WriteLine($"There are no quests or monster at this current location, but from this location you can vists plenty other locations!");
         Console.WriteLine($"Would you like to go North, South, East or West? Enter the first letter of the wanted direction.");
         string choice = Console.ReadLine();
@@ -201,6 +211,47 @@ class Program
     }
     static void farmhouse(Player player)
     {
-        
+        player.CurrentLocation = World.Locations[5];
+        Console.WriteLine($"You have arrived at {player.CurrentLocation.Name}: {player.CurrentLocation.Description}");
+        if (player.CurrentLocation.QuestAvailableHere != null)
+        {
+            Console.WriteLine($"There's a quest available at this location: {player.CurrentLocation.QuestAvailableHere.Name}: {player.CurrentLocation.QuestAvailableHere.Description}");
+            Console.WriteLine($"For this quest, you have to visit the farmer's field, so you will now be moved there.");
+            if (farmersfield(player))
+            {
+                player.CurrentLocation = World.Locations[5];
+                player.CurrentLocation.QuestAvailableHere = null;
+                Console.WriteLine("You have completed the quest at the farmer's field");
+                Console.WriteLine("You can now move to a different location. You'll get brought to TownSquare to pick a new location to visit!");
+                townSquare(player);
+            }
+            else 
+            {
+                Console.WriteLine("It seems you unfortunately were not strong enough for that battle yet.");
+                Console.WriteLine("You will be moved to Home.");
+                Home(player);
+            }
+        }
+        else
+        {
+            Console.WriteLine("The Quest which once was available at this location has already been cleared.\n From here you can only go back to TownSquare, so we'll bring you there.");
+            townSquare(player);
+        }
+    }
+    static bool farmersfield(Player player)
+    {
+        player.CurrentLocation = World.Locations[6];
+        Console.WriteLine($"You have arrived at {player.CurrentLocation.Name}: {player.CurrentLocation.Description}");
+        Console.WriteLine($"To complete the quest at the Farmer's fieldn, you will have to battle the snakes at this location.\n\n");
+        if (Battle(player, player.CurrentLocation.MonsterLivingHere))
+            {
+                Console.WriteLine("You have won your battle!\nMoving back to Alchemist's Hut now.\n");
+                return true;
+            }
+        else
+            {
+                Console.WriteLine("You have lost your battle...\nMoving back to Alchemist's Hut now.\n");
+                return false;
+            }
     }
 }
