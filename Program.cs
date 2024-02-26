@@ -69,6 +69,8 @@ class Program
                 player.CurrentLocation = World.Locations[3];
                 player.CurrentLocation.QuestAvailableHere = null;
                 Console.WriteLine("You have completed the quest at the alchemist's garden");
+                player.PlayerLevel++;
+                Console.WriteLine($"You levelled up! Current level: {player.PlayerLevel}");
                 Console.WriteLine("You can now move to a different location. You'll get brought to TownSquare to pick a new location to visit!");
                 townSquare(player);
             }
@@ -182,6 +184,8 @@ class Program
             Console.WriteLine($"You have arrived at {player.CurrentLocation.Name}: {player.CurrentLocation.Description}");
             Console.WriteLine($"After your battle you head back to the GuardPost, as there are no more activities at this current location.");
             player.CurrentLocation.QuestAvailableHere = null;
+            player.PlayerLevel++;
+            Console.WriteLine($"You levelled up! Current level: {player.PlayerLevel}");
             return true;
         }
         else
@@ -222,6 +226,8 @@ class Program
                 player.CurrentLocation = World.Locations[5];
                 player.CurrentLocation.QuestAvailableHere = null;
                 Console.WriteLine("You have completed the quest at the farmer's field");
+                player.PlayerLevel++;
+                Console.WriteLine($"You levelled up! Current level: {player.PlayerLevel}");
                 Console.WriteLine("You can now move to a different location. You'll get brought to TownSquare to pick a new location to visit!");
                 townSquare(player);
             }
