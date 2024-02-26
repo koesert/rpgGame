@@ -36,20 +36,3 @@ class HealingItem : Item
         Console.WriteLine($"You used the {Name} and gained {HealingAmount} health points.");
     }
 }
-
-// Subclass for weapons
-class Weapon : Item
-{
-    public int Damage { get; set; }
-
-    public Weapon(string name, int weight, int damage) : base(name, weight)
-    {
-        Damage = damage;
-    }
-
-    // Override the Use method for weapons
-    public override void Use()
-    {
-        Console.WriteLine($"You used the {Name} and dealt {Damage} damage.");
-    }
-}
