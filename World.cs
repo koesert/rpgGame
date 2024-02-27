@@ -15,10 +15,14 @@ public static class World
     public const int MONSTER_ID_RAT = 1;
     public const int MONSTER_ID_SNAKE = 2;
     public const int MONSTER_ID_GIANT_SPIDER = 3;
+    public const int MONSTER_ID_MORWENSECURITY = 4;
+    public const int MONSTER_ID_MORWEN = 5;
 
     public const int QUEST_ID_CLEAR_ALCHEMIST_GARDEN = 1;
     public const int QUEST_ID_CLEAR_FARMERS_FIELD = 2;
     public const int QUEST_ID_COLLECT_SPIDER_SILK = 3;
+    public const int QUEST_ID_SAVE_THE_WORLD = 4;
+    public const int QUEST_ID_DEFEAT_MORWEN = 5;
 
     public const int LOCATION_ID_HOME = 1;
     public const int LOCATION_ID_TOWN_SQUARE = 2;
@@ -29,6 +33,7 @@ public static class World
     public const int LOCATION_ID_FARM_FIELD = 7;
     public const int LOCATION_ID_BRIDGE = 8;
     public const int LOCATION_ID_SPIDER_FIELD = 9;
+    public const int LOCATION_ID_CASTLE = 10;
 
     static World()
     {
@@ -43,6 +48,7 @@ public static class World
     {
         Weapons.Add(new Weapon(WEAPON_ID_RUSTY_SWORD, "Rusty sword", 5));
         Weapons.Add(new Weapon(WEAPON_ID_CLUB, "Club", 10));
+        Weapons.Add(new Weapon(WEAPON_ID_CLUB+1, "Excalibur", 100));
     }
 
     public static void PopulateMonsters()
@@ -55,10 +61,14 @@ public static class World
 
         Monster giantSpider = new Monster(MONSTER_ID_GIANT_SPIDER, "giant spider", 3, 10, 10);
 
+        Monster MorwenSecurity = new Monster(MONSTER_ID_MORWENSECURITY, "Morwen's Security", 30, 20, 20);
+        Monster Morwen = new Monster(MONSTER_ID_MORWEN, "Morwen", 50, 500, 500);
 
         Monsters.Add(rat);
         Monsters.Add(snake);
         Monsters.Add(giantSpider);
+        Monsters.Add(MorwenSecurity);
+        Monsters.Add(Morwen);
     }
 
     public static void PopulateQuests()
@@ -83,11 +93,18 @@ public static class World
                         QUEST_ID_COLLECT_SPIDER_SILK,
                         "Collect spider silk",
                         "Kill spiders in the spider forest");
+        
+        Quest defeatMorwen =
+                    new Quest(
+                        QUEST_ID_DEFEAT_MORWEN,
+                        "Save the world",
+                        "Defeat Morwen at his castle");
 
 
         Quests.Add(clearAlchemistGarden);
         Quests.Add(clearFarmersField);
         Quests.Add(clearSpidersForest);
+        Quests.Add(defeatMorwen);
     }
 
     public static void PopulateLocations()
@@ -116,6 +133,9 @@ public static class World
 
         Location spiderField = new Location(LOCATION_ID_SPIDER_FIELD, "Forest", "You see spider webs covering covering the trees in this forest.", null, null);
         spiderField.MonsterLivingHere = MonsterByID(MONSTER_ID_GIANT_SPIDER);
+
+        Location morwencastle = new Location(LOCATION_ID_CASTLE, "Morwen's Castle", "The fate of the world, lying in your hands", null, null);
+        // morwencastle.QuestAvailableHere = QuestByID(QUEST_ID_DEFEAT_MORWEN);
 
         // Link the locations together
         home.LocationToNorth = townSquare;
@@ -153,6 +173,7 @@ public static class World
         Locations.Add(farmersField);
         Locations.Add(bridge);
         Locations.Add(spiderField);
+        Locations.Add(morwencastle);
     }
 
     public static Location LocationByID(int id)
